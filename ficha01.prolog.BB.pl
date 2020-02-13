@@ -71,8 +71,7 @@ descendente( D,A ) :- neto( D,A ).
 descendente( D,A,1 ) :- filho( D,A ).
 descendente( D,A,2 ) :- neto( D,A ). 
 
-% descedente ( D,A,G ) :- filho( D,X ),descendente( %,A,N ),
-                                                           G is N+1.
+% descedente ( D,A,G ) :- filho( D,X ),descendente( %,A,N ),G is N+1.
 
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
