@@ -35,14 +35,18 @@ opart( X,Y,Op ) :- (Op=='-') -> G is X-Y,write(G).
 opart( X,Y,Op ) :- (Op=='*') -> G is X*Y,write(G).
 opart( X,Y,Op ) :- (Op=='/') -> G is X/Y,write(G).
 
+
+opart( X,Y,'*',Res ) :- Res is X*Y.
+opart( X,Y,'+',Res ) :- Res is X+Y.
+
+
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado opL : [A|B],Acc,Op -> {V,F}
 
-
 opL([],1,'*').
-opL([H|T],Acc,Op) :- (Op=='*') -> opL(T,N,Op), Acc is H*N.
-%opL([H|T],Acc,Op) :- opL(T,N,Op), Acc is opart( H,N,Op ).
-opL([H|T],Op) :- (Op=='+') -> soma([H|T],N).
+opL([],0,'+').
+opL([H|T],Acc,Op) :- opL(T,N,Op), opart( H,N,Op,Res ),Acc is Res.
+
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado maior : X,Y ->  {V,F}
