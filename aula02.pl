@@ -95,10 +95,9 @@ isortD([H|T],S):-isortD(T,S1),insert(H,S1,S).
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado countEmpty : [A|B],Sum ->  {V,F}
 
-
-countnEmpty([],0).
-countnEmpty([H|L],Sum) :- nEmpty(L,Res), H == [], Sum is Res + 1.
-countEmpty([H|L],Sum) :- nEmpty(L,Res), Sum is Res.
+countEmpty([],0).
+countEmpty([H|L],Sum) :- countEmpty(L,Res), H == [], Sum is Res + 1.
+countEmpty([H|L],Sum) :- countEmpty(L,Res), Sum is Res.
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado negacao : Predicado ->  {V,F}
