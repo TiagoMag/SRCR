@@ -79,3 +79,7 @@ inverte([H|T],L) :- inverte(T,Res),concat(Res,[H],L) .
 sublista([],_).
 sublista([H|T],[H|Xs]) :- sublista(T,Xs).
 sublista([H|T],[H2|Xs]) :- sublista([H|T],Xs).
+
+
+
+as
